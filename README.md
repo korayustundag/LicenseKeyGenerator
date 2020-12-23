@@ -1,5 +1,6 @@
 # License Key Generator
 Free Open Source License Key Generator
+
 [![Download](https://img.shields.io/badge/Download-v1.0.1.0-brightgreen)](https://github.com/korayustundag/LicenseKeyGenerator/releases)
 ## Features :: v1.0.1.0
 
