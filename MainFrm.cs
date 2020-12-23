@@ -88,17 +88,24 @@ namespace LicenseKeyGenerator
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveFileDialog s = new SaveFileDialog();
-            s.Filter = "Text File|*.txt";
-            if (s.ShowDialog() == DialogResult.OK)
+            if (listBoxKeys.Items.Count != 0)
             {
-                string myFile = "";
-                foreach (string item in listBoxKeys.Items)
+                SaveFileDialog s = new SaveFileDialog();
+                s.Filter = "Text File|*.txt";
+                if (s.ShowDialog() == DialogResult.OK)
                 {
-                    myFile += item + Environment.NewLine;
+                    string myFile = "";
+                    foreach (string item in listBoxKeys.Items)
+                    {
+                        myFile += item + Environment.NewLine;
+                    }
+                    File.WriteAllText(s.FileName, myFile);
+                    MessageBox.Show("The generated keys are saved.", "License Key Generator");
                 }
-                File.WriteAllText(s.FileName, myFile);
-                MessageBox.Show("The generated keys are saved.", "License Key Generator");
+            }
+            else
+            {
+                MessageBox.Show("Please generate License key first.", "License Key Generator");
             }
         }
 
